@@ -6,16 +6,14 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const configPath = path.join(__dirname, "./config/config.json");
+const configPath = path.join(__dirname, "./config.json");
 const config = require(configPath)[env];
 const db = {};
 const express = require('express');
-const sequelize = require("./config/db"); // Asegúrate de que esta importación sea correcta
-const userRoutes = require("./Routes/userRoutes"); // Verifica que este archivo existe y es correcto
+const sequelize = require("./db"); // Asegúrate de que esta importación sea correcta
+const userRoutes = require("./src/userRoutes"); // Verifica que este archivo existe y es correcto
 const app = express();
 const PORT = 3000;
-
-console.log('Servidor backend iniciado');
 
 // Middleware para procesar JSON
 app.use(express.json());
@@ -47,8 +45,15 @@ fs
       );
   })
   .forEach(file => {
-      const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-      db[model.name] = model;
+      const modelPath = path.join(__dirname, file);
+      const model = require(modelPath);
+
+      // Verificar si el archivo exporta una función
+      if (typeof model === 'function') {
+          db[model.name] = model(sequelize, Sequelize.DataTypes);
+      } else {
+          console.error(`El archivo ${file} no exporta una función válida para Sequelize.`);
+      }
   });
 
 Object.keys(db).forEach(modelName => {
@@ -58,6 +63,5 @@ Object.keys(db).forEach(modelName => {
 });
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
 
 module.exports = db;
