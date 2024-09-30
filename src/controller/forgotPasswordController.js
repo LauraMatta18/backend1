@@ -1,9 +1,9 @@
 // forgotPasswordController.js
 
-const User = require("./user.js");
-const ForgotPasswordUser = require("./ForgotPasswordUser.js");
+const User = require("../models/User.js");
+const ForgotPasswordUser = require("../models/ForgotPasswordUser.js");
 const jwt = require('jsonwebtoken');
-const { sendResetPasswordEmail } = require('./emailSender');
+const { sendResetPasswordEmail } = require('../emailSender.js');
 
 // Solicitar restablecimiento de contraseña
 exports.forgotPassword = async (req, res) => {

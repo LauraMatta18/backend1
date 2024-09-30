@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const enterpriseController = require("./enterpriseController.js");
+const enterpriseController = require("../controller/enterpriseController.js");
 
 router.get('/', enterpriseController.getAllEnterprises);
 router.post('/', enterpriseController.createEnterprise);

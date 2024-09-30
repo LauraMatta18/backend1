@@ -1,6 +1,6 @@
 // loginEnterpriseController.js
 
-const LoginEnterprise = require("./Login_Enterprise.js");
+const LoginEnterprise = require("../models/Login_Enterprise.js");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 

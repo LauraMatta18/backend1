@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const candidateController = require('./candidateController.js');
+const candidateController = require('../controller/candidateController.js');
 
 // Rutas para candidatos
 router.get('/', candidateController.getAllCandidates); // Cambié el método a getAllCandidates

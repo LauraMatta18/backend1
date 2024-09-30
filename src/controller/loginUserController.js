@@ -1,6 +1,6 @@
 // loginUserController.js
 
-const LoginUser = require("./Login_User.js");
+const LoginUser = require("../models/Login_User.js");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../db.js');
-const User = require('./user.js'); // Importa el modelo de usuario para la clave foránea
+const sequelize = require('../../db.js');
+const User = require('./User.js'); // Importa el modelo de usuario para la clave foránea
 
 const ForgotPasswordUser = sequelize.define('Forgot_Password_User', {
   password_reset: {

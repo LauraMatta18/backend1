@@ -1,6 +1,6 @@
 // enterpriseController.js
 
-const Enterprise = require("./enterprise.js");
+const Enterprise = require("../models/enterprise.js");
 const bcrypt = require('bcrypt');
 
 // Crear una nueva empresa

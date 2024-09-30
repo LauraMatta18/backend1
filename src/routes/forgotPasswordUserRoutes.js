@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const forgotPasswordController = require("./forgotPasswordController.js");
+const forgotPasswordController = require("../controller/forgotPasswordController.js");
 
 // Ruta para solicitar restablecimiento de contraseña
 router.post('/forgotPassword', forgotPasswordController.forgotPassword);

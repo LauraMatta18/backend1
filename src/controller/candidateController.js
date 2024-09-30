@@ -1,6 +1,6 @@
 // candidateController.js
 
-const Candidate = require("./candidate.js");
+const Candidate = require("../models/candidate.js");
 
 // Crear un nuevo candidato
 exports.createCandidate = async (req, res) => {
